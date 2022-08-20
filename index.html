@@ -1057,6 +1057,12 @@ function btnsearch_click(){
 
 $msg_data = "YX" +"|"+ $('#keyword').val();
     
+function Enter_Check(){
+        // 엔터키의 코드는 13입니다.
+    if(event.keyCode == 13){
+        btnsearch_click();  // 실행할 이벤트
+    }
+}
     //console.log($msg_data);
 
 $.ajax({
