@@ -6,6 +6,7 @@
 
 
 
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -836,7 +837,7 @@ for (var i = 0; i < positions.length; i ++) {
 
 
 </div>
-
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=2634b7b6dd61e41a4d6c0bf40a2ef820"></script>
     <script>
 
 function save_PC(num)
@@ -862,7 +863,7 @@ function save_PC(num)
 
 
         $.ajax({
-        url:'https://ajubang.com/mm/op/map_crud.php',
+            url:'https://ajubang.com/mm/op/map_crud.php',
         dataType:'json',
         type:'POST',
         data:{'msg':$msg_data},
@@ -1057,6 +1058,7 @@ function btnsearch_click(){
 
 $msg_data = "YX" +"|"+ $('#keyword').val();
     
+
     //console.log($msg_data);
 
 $.ajax({
