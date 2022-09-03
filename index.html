@@ -1153,15 +1153,15 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     <button id="btn_input_copy" style= "position:absolute;top:12;width:50;right:285;z-index:200">복사</button>
  <input type="text" class='form-control' style= "position:absolute;top:13;width:270;right:10;z-index:20" id = "gpsyx" value ="35.2725308711779, 128.406307024695"></button>
 
-    
+   <input type="text" id="keyword" onkeydown='Enter_Check();' style="position:absolute;top:12;width:150;left:205;z-index:200" autofocus /><span>
+    <span><button tabindex="-1" onclick="btnsearch_click()" style="position:absolute;top:13;width:70;left:100;z-index:20" class="bsuccess" >주소검색</button></span><span class="count"></span>
+</div>  
 
 <div id="menu_wrap" class="bg_white" style="border:1px solid #919191;border-radius:10px;">
 <div id="input-form">
 
 	
-    <input type="text" id="keyword" onkeydown='Enter_Check();' style="width:90px" autofocus /><span>
-    <span><button tabindex="-1" onclick="btnsearch_click()" style="vertical-align: bottom" class="bsuccess" >이동</button></span><span class="count"></span>
-</div>
+   
     
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.2643129874132,128.489259058209)' id='total1'>도-001-산인신당고개</div>
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.2833312506004,128.402859093824)' id='total2'>도-002-가야함안중앞02</div>
