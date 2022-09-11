@@ -2,6 +2,12 @@
 
 
 
+
+
+
+
+
+
    <style>
 #container {overflow:hidden;height:100%;position:relative;}
 #mapWrapper {width:100%;height:100%;z-index:1;}
@@ -1916,8 +1922,7 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 <script>
 
 
-function btnsearch_click(){
-		// 버튼을 click했을때
+$('#searchBtn').click(function(){		// 버튼을 click했을때
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 		// 주소로 좌표를 검색합니다
@@ -1939,7 +1944,7 @@ function btnsearch_click(){
 		        map.setCenter(coords)
              }
         });
-        };
+        });
 </script>
 
 </body>
