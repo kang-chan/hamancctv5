@@ -67,9 +67,6 @@ var mapCenter = new kakao.maps.LatLng(35.2725308711779, 128.406307024695), // �
 $('#searchBtn').click(function(){
 		// 버튼을 click했을때
 		
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
 		// 주소-좌표 변환 객체를 생성합니다
 		var geocoder = new kakao.maps.services.Geocoder();
 		
@@ -1927,7 +1924,6 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.30210952737465, 128.43968008111946)' id=tchk1>미설치8 산인어연 요청지</div>											      
 </div>
 
-<script>
 
      // 2-2. input:text 복사
     document.getElementById("btn_input_copy").onclick = function(){
@@ -1937,7 +1933,6 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
     };
 	    
 	    
-    </script>
 
 </body>
 
