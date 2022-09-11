@@ -7,6 +7,7 @@
 
 
 
+
    <style>
 #container {overflow:hidden;height:100%;position:relative;}
 #mapWrapper {width:100%;height:100%;z-index:1;}
@@ -1169,8 +1170,9 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
  <input type="text" class='form-control' style= "position:absolute;top:13;width:270;right:10;z-index:20" id = "gpsyx" value ="35.2725308711779, 128.406307024695"></button>
 
    <input type="text" id="keyword" onkeydown='Enter_Check();' style="position:absolute;top:13;width:300;left:235;z-index:200" autofocus /><span>
-    <span><button tabindex="-1" onclick="btnsearch_click()" style="position:absolute;top:12;width:45;left:160;z-index:20" class="bsuccess" >검색</button></span><span class="count"></span>
+    <span><button tabindex="-1" id="searchBtn" onclick="btnsearch_click()" style="position:absolute;top:12;width:45;left:160;z-index:20" class="bsuccess" >검색</button></span>
 </div>  
+
 
 <div id="menu_wrap" class="bg_white" style="border:1px solid #919191;border-radius:10px;">
 <div id="input-form">
@@ -1914,37 +1916,36 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.31756253874039, 128.54313514700289)' id=tchk1>미설치5 칠원운동 요청지</div>
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.307841726437516, 128.3339697884328)' id=tchk1>미설치6 법수국계 요청지</div>												      
 <div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.3414639358083, 128.33408781429966)' id=tchk1>미설치7 법수문현 요청지</div>
-<div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.30210952737465, 128.43968008111946)' id=tchk1>미설치8 산인어연 요청지</div>
-												      
+<div class='sel_text' style='cursor: pointer;' onClick='setCenter(35.30210952737465, 128.43968008111946)' id=tchk1>미설치8 산인어연 요청지</div>											      
 </div>
 
- 
 <script>
 
 
-
-
-
-
-
-
-
-
-
-
-$("#keyword").keyup(function() {
-                var k = $(this).val();
-                $(".sel_text").hide();
-                var temp = $(".sel_text:contains('" + k + "')");
-
-                $(temp).show();
-                $('.count').text(temp.length);                
-            })
-
-            
-
-
-    
+function btnsearch_click(){
+		// 버튼을 click했을때
+		// 주소-좌표 변환 객체를 생성합니다
+		var geocoder = new kakao.maps.services.Geocoder();
+		// 주소로 좌표를 검색합니다
+		geocoder.addressSearch($('#keyword').val(), function(result, status) {
+		    // 정상적으로 검색이 완료됐으면 
+		     if (status === kakao.maps.services.Status.OK) {
+		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+		        // 결과값으로 받은 위치를 마커로 표시합니다
+		        var marker = new kakao.maps.Marker({
+		            map: map,
+		            position: coords
+		        });
+		        // 인포윈도우로 장소에 대한 설명을 표시합니다
+		        var infowindow = new kakao.maps.InfoWindow({
+		            content: '<div style="width:150px;text-align:center;padding:6px 0;">장소</div>'
+		        });
+		        infowindow.open(map, marker);
+		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+		        map.setCenter(coords)
+             }
+        })
+        };
 </script>
 
 </body>
