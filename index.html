@@ -2327,24 +2327,6 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 <div class='sel_txt' style='cursor: pointer;' onClick='setCenter(35.2946076208522, 128.349304046441)'><span class='name'>차-함안휴게소뒤(법수방면)</span></div>
 </div>
 
-<script type="text/javascript">
-      function filter(){
-
-        var value, name, item, i;
-
-        value = document.getElementById("keyword").value.toUpperCase();
-        item = document.getElementsByClassName("sel_txt");
-
-        for(i=0;i<item.length;i++){
-          name = item[i].getElementsByClassName("name");
-          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
-            item[i].style.display = "flex";
-          }else{
-            item[i].style.display = "none";
-          }
-        }
-      }
-</script>
   
     <script>   
  // 버튼을 click했을때
