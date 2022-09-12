@@ -1148,10 +1148,6 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 
 
 <div id="menu_wrap" class="bg_white" style="border:1px solid #919191;border-radius:10px;">
-<div id="input-form">
-
-	
-   
     
 <div class='sel_txt' style='cursor: pointer;' onClick='setCenter(35.2643129874132, 128.489259058209)'><span class='name'>도-001-신당고개</span></div>
 <div class='sel_txt' style='cursor: pointer;' onClick='setCenter(35.2833312506004, 128.402859093824)'><span class='name'>도-002-함안중앞02</span></div>
@@ -2331,8 +2327,8 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 <div class='sel_txt' style='cursor: pointer;' onClick='setCenter(35.2946076208522, 128.349304046441)'><span class='name'>차-함안휴게소뒤(법수방면)</span></div>
 </div>
 
-<script>
- function filter(){
+<script type="text/javascript">
+      function filter(){
 
         var value, name, item, i;
 
@@ -2347,8 +2343,8 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
             item[i].style.display = "none";
           }
         }
-      };    
-   </script>   
+      }
+</script>
   
     <script>   
  // 버튼을 click했을때
