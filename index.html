@@ -2355,7 +2355,22 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
 		    } 
 		})  
 	};
-	  
+	      function filter(){
+
+        var value, name, item, i;
+
+        value = document.getElementById("keyword").value.toUpperCase();
+        item = document.getElementsByClassName("sel_txt");
+
+        for(i=0;i<item.length;i++){
+          name = item[i].getElementsByClassName("name");
+          if(name[0].innerHTML.toUpperCase().indexOf(value) > -1){
+            item[i].style.display = "flex";
+          }else{
+            item[i].style.display = "none";
+          }
+        }
+      };  
 	</script>
  <script>   
      // 2-2. input:text 복사
