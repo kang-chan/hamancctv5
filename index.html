@@ -1103,7 +1103,7 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
 		var geocoder = new kakao.maps.services.Geocoder();
 		
 		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch('함안군' + $('#keyword').val(), function(result, status) {
+		geocoder.addressSearch($('#keyword').val(), function(result, status) {
 	
 		    // 정상적으로 검색이 완료됐으면 
 		     if (status === kakao.maps.services.Status.OK) {
@@ -1150,7 +1150,7 @@ circle.setMap(null);
 var ps = new kakao.maps.services.Places(); 
 
 // 키워드로 장소를 검색합니다
-ps.keywordSearch($('#keyword').val(), placesSearchCB); 
+ps.keywordSearch('함안군' + $('#keyword').val(), placesSearchCB); 
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
