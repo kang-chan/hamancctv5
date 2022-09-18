@@ -248,7 +248,8 @@ function closeRoadview() {
 function setCenter(Lat, Lng) {
     // 이동할 위도 경도 위치를 생성합니다 
     var moveLatLon = new daum.maps.LatLng(Lat, Lng);
-  
+  map.setLevel(4);
+
     // 지도 중심을 이동 시킵니다
     map.panTo(moveLatLon);
 var circle = new daum.maps.Circle({
