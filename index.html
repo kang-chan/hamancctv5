@@ -1,6 +1,7 @@
 
 
 
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -50,7 +51,7 @@
     <button id="btn_input_copy" style= "position:absolute;top:12;width:45;right:285;z-index:200">복사</button>
  <input type="text" class='form-control' style= "position:absolute;top:13;width:270;right:10;z-index:20" id = "gpsyx" value ="35.2725308711779, 128.406307024695"></button>
 
-   <input type="text" id="keyword" onkeyup="filter()" onkeydown="Enter_Check()" style="position:absolute;top:13;width:300;left:210;z-index:200"/>
+   <input type="text" id="keyword" onkeyup="filter()" onkeydown="Enter_Check()" class="clickdown" style="position:absolute;top:13;width:300;left:210;z-index:200"/>
    <button id="searchBtn" onclick="btnsearch_click()" style="position:absolute;top:12;width:45;left:160;z-index:20" class="bsuccess" >검색</button>
 
 
@@ -1058,7 +1059,7 @@ function makeOutListener(infowindow) {
         btnsearch_click();  // 실행할 이벤트
     }
 }
-    
+
  function doClick(element) {
 	divText = $(element).html();
   $('#status').html('You clicked on: ' + divText);
@@ -1110,13 +1111,38 @@ kakao.maps.event.addListener(map, 'center_changed', function() {
 		            map: map,
                     image: markerImage1,
 		            position: coords
-		        });
+		        });     
+
 marker1.setDraggable(true); 
 
 
 		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 		        map.setCenter(coords);
-		    }             else {
+		    
+            var circle = new daum.maps.Circle({
+    center : coords,  // 원의 중심좌표 입니다 
+    radius: 100, // 미터 단위의 원의 반지름입니다 
+    strokeWeight: 1, // 선의 두께입니다 
+    strokeColor: '#ffa500', // 선의 색깔입니다
+    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    strokeStyle: 'dashed', // 선의 스타일 입니다
+    fillColor: '#FF1000', // 채우기 색깔입니다
+    fillOpacity: 0.3  // 채우기 불투명도 입니다   
+}); 
+
+// 지도에 원을 표시합니다 
+circle.setMap(map);     
+setTimeout(function(){
+circle.setMap(null);    
+}, 2000)
+    var obj = document.getElementsByClassName('clickdown');
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].value = '';
+        }
+
+             }
+        
+            else {
                 // 장소 검색 객체를 생성합니다
 var ps = new kakao.maps.services.Places(); 
 
@@ -1130,15 +1156,33 @@ function placesSearchCB (data, status, pagination) {
        // 검색된 장소 위치를 기준으로 지도 범위를 재설정하기위해
         // LatLngBounds 객체에 좌표를 추가합니다
        
-
             displayMarker(data[0]);    
  var bounds = new kakao.maps.LatLng(data[0].y, data[0].x);
           
         // 검색된 장소 위치를 기준으로 지도 범위를 재설정합니다
         map.setCenter(bounds);
+               var circle = new daum.maps.Circle({
+    center : bounds,  // 원의 중심좌표 입니다 
+    radius: 100, // 미터 단위의 원의 반지름입니다 
+    strokeWeight: 1, // 선의 두께입니다 
+    strokeColor: '#ffa500', // 선의 색깔입니다
+    strokeOpacity: 1, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+    strokeStyle: 'dashed', // 선의 스타일 입니다
+    fillColor: '#FF1000', // 채우기 색깔입니다
+    fillOpacity: 0.3  // 채우기 불투명도 입니다   
+}); 
+
+// 지도에 원을 표시합니다 
+circle.setMap(map);     
+setTimeout(function(){
+circle.setMap(null);    
+}, 2000)        
     }
 }
-
+    var obj = document.getElementsByClassName('clickdown');
+        for (var i = 0; i < obj.length; i++) {
+            obj[i].value = '';
+        }
                 
 // 지도에 마커를 표시하는 함수입니다
 function displayMarker(place) {
