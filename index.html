@@ -1050,7 +1050,12 @@ function makeOutListener(infowindow) {
     };
 }
 
-
+ function Enter_Check(){
+        // 엔터키의 코드는 13입니다.
+    if(event.keyCode == 13){
+        btnsearch_click();  // 실행할 이벤트
+    }
+}
     
  function doClick(element) {
 	divText = $(element).html();
