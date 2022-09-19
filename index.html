@@ -3,11 +3,13 @@
 
 
 
+
+
 <html>
 <head>
     <meta charset="utf-8">
     <title>함안군 CCTV GIS</title>
-    
+    <link rel="shortcut icon" type="image/x-icon" href="https://raw.githubusercontent.com/kang-chan/hamancctv4/main/favicon.ico" />
 </head>
     
    <style>
@@ -1150,7 +1152,7 @@ circle.setMap(null);
 var ps = new kakao.maps.services.Places(); 
 
 // 키워드로 장소를 검색합니다
-ps.keywordSearch('함안군' + $('#keyword').val(), placesSearchCB); 
+ps.keywordSearch($('#keyword').val(), placesSearchCB); 
 
 // 키워드 검색 완료 시 호출되는 콜백함수 입니다
 function placesSearchCB (data, status, pagination) {
